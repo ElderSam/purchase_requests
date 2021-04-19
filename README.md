@@ -1,5 +1,9 @@
 # Aplicação de Pedido de Compras desenvolvida em ReactJS, Node.js e PostgreSQL
 
+
+DER (Diagrama Entidade Relacionamento):
+![alt text](/DER.png "ER (view of the relationship entity)")
+
 OBS: O DER (Diagrama Entidade Relacionamento) foi criado em https://app.sqldbm.com/PostgreSQL/Draft/, mas também pode ser gerado no próprio PgAmin 4 em Tools -> New ERD Project
 
 ---------------------
