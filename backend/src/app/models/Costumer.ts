@@ -1,5 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, getRepository, Repository } from 'typeorm';
 import { StatusType } from './../types';
+
+let repository: Repository<Costumer>;
+
 @Entity('costumers')
 class Costumer {
 
@@ -22,6 +25,22 @@ class Costumer {
         default: 1
     })
     status: StatusType;
+
+    /* ------------------- Methods ----------------------- */
+    static async list() {
+        const repository = getRepository(Costumer);
+
+        return await repository.find();
+        /*return await repository.createQueryBuilder("costumers")
+            .select([
+                "id",
+                "name",
+                "phone",
+                "birth_date",
+                "status"
+            ])
+            .getRawMany();*/
+    }
 }
 
 export default Costumer;

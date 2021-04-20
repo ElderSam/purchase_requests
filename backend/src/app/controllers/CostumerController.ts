@@ -4,6 +4,12 @@ import { getRepository } from 'typeorm';
 import Costumer from '../models/Costumer';
 
 class CostumerController {
+    async listAll(req: Request, res: Response) { // list all costumers
+        const list = await Costumer.list();
+
+        return res.send({ listCostumers: list });
+    }
+
     async store(req: Request, res: Response) {
         const repository = getRepository(Costumer);
         const { name, phone, birth_date, status } = req.body;
