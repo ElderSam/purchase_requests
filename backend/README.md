@@ -1,6 +1,4 @@
+# Backend
 
-
-Como eu iniciei o projeto
-``$ mkdir backend``
-``$ cd backend``
-``$ npm init``
+1. Start Server:
+``$ yarn dev``
