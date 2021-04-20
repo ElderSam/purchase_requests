@@ -8,10 +8,14 @@ router.post('/costumers', CostumerController.store);
 
 // List
 router.get('/costumers', CostumerController.listAll)
-export default router;
+
+// List by Id
+router.get('/costumers/:id', CostumerController.listById)
 
 // Update
 router.put('/costumers/:id', CostumerController.update);
 
 // Delete
 router.delete('/costumers/:id', CostumerController.delete);
+
+export default router;

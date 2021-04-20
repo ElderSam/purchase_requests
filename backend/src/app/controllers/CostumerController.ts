@@ -10,6 +10,19 @@ class CostumerController {
         return res.send({ listCostumers: list });
     }
 
+    async listById(req: Request, res: Response) { // list costumers by Id
+
+            let { id } = req.params;
+
+            if(isNaN(id as any)) { // checking if the id is valid
+                return res.status(400).send({ error: 'Invalid Id' });
+            }
+
+        const costumer = await Costumer.list(id);
+
+        return res.send({ costumer: costumer });
+    }
+
     async store(req: Request, res: Response) {
         const costumer = req.body;
 

@@ -33,9 +33,17 @@ class Costumer {
     status: StatusType;
 
     /* ------------------- Methods ----------------------- */
-    static async list() {
+    static async list(id = '0') {
         const repository = getRepository(Costumer);
 
+        if(id !== '0' && id !== undefined) {
+            /* ------------- List By Id ------------- */
+            return await repository.createQueryBuilder("costumers") 
+            .where("id = :id", { id })
+            .getOne();
+        }
+
+        /* ------------- List All ------------- */
         //return await repository.find();
         return await repository.createQueryBuilder("costumers") //https://typeorm.io/#/select-query-builder/how-to-create-and-use-a-querybuilder
             .select([
