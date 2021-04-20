@@ -18,7 +18,8 @@ $ yarn dev
 ## API Rotes
 host: http://localhost:3333
 
-You can use the Insomnia or Postman to see the routes
+You can use the Insomnia to see the routes.
+Open Insomnia, and import the file in `/api_documentation` folder
 
 Costumers;
     Create /costumers (POST)
