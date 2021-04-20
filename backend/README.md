@@ -15,16 +15,20 @@ $ yarn typeorm migration:run
 $ yarn dev
 ----------------
 
-## API Rotes
-host: http://localhost:3333
+## 🚚 API Rotes
+host: <code>http://localhost:3333</code>
 
 You can use the Insomnia to see the routes.
 Open Insomnia, and import the file in `/api_documentation` folder
 
 Costumers;
-    Create /costumers (POST)
+*``Create /costumers (POST)``*
 
-    List: /costumers (GET)
+*``List: /costumers (GET)``*
+
+*``Update: /costumers/:id (PUT)``*
+
+*``Delete: /costumers/:id (DELETE)``*
 
 ------------------
 ## Download PostgreSQL
@@ -42,7 +46,7 @@ $ yarn typeorm migration:run
 Veja Mais: https://typeorm.io/#/migrations/creating-a-new-migration
 
 ------------------
-## Tools and Libraries used:
+## 📚 Tools and Libraries used:
 **body-parser**
 Parses the client's request from JSON into Javascript objects
 
@@ -68,3 +72,8 @@ Documentation: https://typeorm.io/#/
 
 **reflect-metadata**
 allow some annotations features used with TypeORM
+
+
+---------------------
+## Useful links:
+😉 Emojis: https://emojipedia.org/check-mark/
