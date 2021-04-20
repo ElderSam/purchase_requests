@@ -1,0 +1,17 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "admin",
+    "database": "purchase_requests",
+    "entities": [
+       "src/app/models/*.js"
+    ],
+    "migrations": [
+       "src/database/migrations/*.js"
+    ],
+    "cli": {
+        "migrationsDir": "src/database/migrations"
+    }
+ }

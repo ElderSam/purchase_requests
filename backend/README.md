@@ -1,4 +1,10 @@
 # Backend
+## 1. Instalar dependências
+``$ yarn install``
 
-1. Start Server:
+## 2. Start Server:
 ``$ yarn dev``
+
+------------------
+## Download PostgreSQL
+https://www.postgresql.org/download/
