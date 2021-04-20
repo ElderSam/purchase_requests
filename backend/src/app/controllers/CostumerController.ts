@@ -57,6 +57,16 @@ class CostumerController {
             return res.status(400).send({ error: err.message });
         }
     }
+
+    async delete(req: Request, res: Response) { // delete Costumer
+        const { id } = req.params;
+
+        const repositoty = getRepository(Costumer);
+        const deleteRes = await repositoty.delete(id)
+        // console.log(deleteRes)
+
+        return res.send({ deleted: Boolean(deleteRes.affected), id })
+    }
 }
 
 export default new CostumerController();
