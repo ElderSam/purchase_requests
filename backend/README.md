@@ -1,8 +1,5 @@
-# Backend
+# Backend - Node.js, Typescript, Express, TypeORM & PostgreSQL
 
-Como criei a migration de Produtos:
-``$ yarn typeorm migration:create -n CreateProductsTable``
----------
 ## Initialization 🚀
 
 ## 1️⃣ Install dependencies
