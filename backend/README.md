@@ -4,6 +4,11 @@
 
 ## 2. Start Server:
 ``$ yarn dev``
+----------------
+
+Adicionando Typescript;
+``$ yarn add typescript ts-node @types/express -D`` // instala dependências de desenvolvimento
+``$ npx typescript --init ``//cria arquivo de configurações do TypeScript 
 
 ------------------
 ## Download PostgreSQL
