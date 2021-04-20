@@ -1,9 +1,18 @@
 # Backend
-## 1. Instalar dependências
-``$ yarn install``
 
-## 2. Start Server:
-``$ yarn dev``
+## Initialization 🚀
+
+## 1️⃣ Install dependencies
+$ yarn
+
+## 2️⃣ Configure Database and the `ormconfig.json`
+create a database in Postgres and udpate the <code>`ormconfig.ts`</code> file if necessary
+
+## 3️⃣ Run Migrations (Create tables)
+$ yarn typeorm migration:run
+
+## 4️⃣ Start the Server
+$ yarn dev
 ----------------
 
 Adicionando Typescript;
@@ -17,3 +26,8 @@ https://www.postgresql.org/download/
 
 como criar migrations:
 $ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateCostumersTable
+
+Executar Migrations:
+$ yarn typeorm migration:run
+
+Veja Mais: https://typeorm.io/#/migrations/creating-a-new-migration
