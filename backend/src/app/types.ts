@@ -1,0 +1,1 @@
+export type StatusType = 1 | 0;

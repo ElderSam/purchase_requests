@@ -5,39 +5,35 @@ BEGIN;
 
 CREATE TABLE public.costumers
 (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     name character varying(50) NOT NULL,
     phone character varying(11) NOT NULL,
     birth_date date NOT NULL,
-    status smallint,
-    PRIMARY KEY (id)
+    status smallint
 );
 
 CREATE TABLE public.order_product
 (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     id_order integer NOT NULL,
     id_product integer NOT NULL,
     unit_value numeric NOT NULL,
-    amount smallint NOT NULL,
-    PRIMARY KEY (id)
+    amount smallint NOT NULL
 );
 
 CREATE TABLE public.orders
 (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     id_costumer integer NOT NULL,
-    date_hour timestamp without time zone,
-    PRIMARY KEY (id)
+    date_hour timestamp without time zone
 );
 
 CREATE TABLE public.products
 (
-    id integer NOT NULL,
+    id SERIAL PRIMARY KEY,
     name character varying(20) NOT NULL,
     value numeric NOT NULL,
-    status smallint,
-    PRIMARY KEY (id)
+    status smallint
 );
 
 ALTER TABLE public.order_product

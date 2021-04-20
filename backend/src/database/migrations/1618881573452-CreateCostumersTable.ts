@@ -11,12 +11,11 @@ export class CreateCostumersTable1618881573452 implements MigrationInterface {
         await queryRunner.query(`
             CREATE TABLE IF NOT EXISTS costumers
             (
-                id integer NOT NULL,
-                name character varying(50) NOT NULL,
+                id SERIAL PRIMARY KEY,
+                name character varying(50) UNIQUE NOT NULL,
                 phone character varying(11) NOT NULL,
                 birth_date date NOT NULL,
-                status smallint,
-                PRIMARY KEY (id)
+                status smallint
             );
         `);
     }

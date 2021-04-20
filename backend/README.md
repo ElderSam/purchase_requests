@@ -15,15 +15,19 @@ $ yarn typeorm migration:run
 $ yarn dev
 ----------------
 
-Adicionando Typescript;
-``$ yarn add typescript ts-node @types/express -D`` // instala dependências de desenvolvimento
-``$ npx typescript --init ``//cria arquivo de configurações do TypeScript 
+## API Rotes
+host: http://localhost
+
+You can use the Insomnia or Postman to see the routes
+
+Costumers;
+    Create /costumers (POST)
 
 ------------------
 ## Download PostgreSQL
 https://www.postgresql.org/download/
 
-
+## TypeORM
 como criar migrations:
 $ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateCostumersTable
 

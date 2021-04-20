@@ -1,12 +1,11 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-
+import { StatusType } from './../types';
 @Entity('costumers')
 class Costumer {
 
-    //@PrimaryGeneratedColumn('uuid')
-    //id: 'uuid';
     @PrimaryGeneratedColumn()
     id: number;
+    //generationStrategy: 'increment'
 
     @Column()
     name: string;
@@ -17,8 +16,12 @@ class Costumer {
     @Column()
     birth_date: string;
 
-    @Column()
-    status: number;
+    @Column({
+        type: "enum",
+        enum: [0, 1],
+        default: 1
+    })
+    status: StatusType;
 }
 
 export default Costumer;
