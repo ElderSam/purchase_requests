@@ -30,16 +30,17 @@ class Costumer {
     static async list() {
         const repository = getRepository(Costumer);
 
-        return await repository.find();
-        /*return await repository.createQueryBuilder("costumers")
+        //return await repository.find();
+        return await repository.createQueryBuilder("costumers") //https://typeorm.io/#/select-query-builder/how-to-create-and-use-a-querybuilder
             .select([
                 "id",
                 "name",
                 "phone",
                 "birth_date",
-                "status"
+                "status",
+                "created_at"
             ])
-            .getRawMany();*/
+            .getRawMany();
     }
 }
 

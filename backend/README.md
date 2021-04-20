@@ -52,6 +52,9 @@ Automatically restarts the server when we change any file
 **PostgreSQL**
 Relational Database Manager
 Download PostgreSQL: https://www.postgresql.org/download/
+To start the server manually when has Connection Error: 
+    In Windows, press win + R and open services.msc
+    find postgreSQL service and click right buttom and start
 
 **TypeORM**
 To manipulate database

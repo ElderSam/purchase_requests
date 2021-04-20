@@ -15,7 +15,8 @@ export class CreateCostumersTable1618881573452 implements MigrationInterface {
                 name character varying(50) UNIQUE NOT NULL,
                 phone character varying(11) NOT NULL,
                 birth_date date NOT NULL,
-                status smallint
+                status smallint DEFAULT 1,
+                created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
             );
         `);
     }
