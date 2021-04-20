@@ -11,15 +11,20 @@ class CostumerController {
     }
 
     async store(req: Request, res: Response) {
-        const { name, phone, birth_date, status } = req.body;
+        const costumer = req.body;
 
-        const costumerExists = await Costumer.findByName(name)
+        const invalidFields = CostumerController.verifyFields(costumer);
+
+        if(invalidFields.error)
+            return res.status(400).send({ invalidFields }); // bad request
+
+        const costumerExists = await Costumer.findByName(costumer.name)
 
         if(costumerExists) { // implementation of the Singleton design pattern
             return res.status(409).send({ error: 'Já existe um usuário com este nome' }); // status 409: conflict
         }
 
-        const newCostumer = await Costumer.insert({ name, phone, birth_date, status });
+        const newCostumer = await Costumer.insert(costumer);
 
         return res.json(newCostumer);
     }
@@ -57,6 +62,36 @@ class CostumerController {
         // console.log(deleteRes)
 
         return res.send({ deleted: Boolean(deleteRes.affected), id })
+    }
+
+    static verifyFields(user: any) {
+        let error = false;
+        const incorrectFields = Array();
+
+        try {
+            const requiredFields = [ 'name', 'phone', 'birth_date' ];
+
+            requiredFields.forEach((field, index) => {
+
+                if((user[field] === undefined) || (user[field] === '')) {
+
+                    if(!error)
+                        error = true;
+
+                    incorrectFields.push(field)
+                }
+            })
+
+        }catch {
+            error = true;
+        }
+
+        if(error) {
+            return { error, incorrectFields }
+
+        }else {
+            return { error }
+        }
     }
 }
 
