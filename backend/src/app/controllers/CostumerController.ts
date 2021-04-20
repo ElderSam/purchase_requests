@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
+import { verifyFields } from './utils';
 import Costumer from '../models/Costumer';
 
 class CostumerController {
@@ -25,8 +26,9 @@ class CostumerController {
 
     async store(req: Request, res: Response) {
         const costumer = req.body;
+        const requiredFields = [ 'name', 'phone', 'birth_date' ];
 
-        const invalidFields = CostumerController.verifyFields(costumer);
+        const invalidFields = verifyFields(costumer, requiredFields);
 
         if(invalidFields.error)
             return res.status(400).send({ invalidFields }); // bad request
@@ -34,7 +36,7 @@ class CostumerController {
         const costumerExists = await Costumer.findByName(costumer.name)
 
         if(costumerExists) { // implementation of the Singleton design pattern
-            return res.status(409).send({ error: 'Já existe um usuário com este nome' }); // status 409: conflict
+            return res.status(409).send({ error: 'Já existe um Cliente com este nome' }); // status 409: conflict
         }
 
         const newCostumer = await Costumer.insert(costumer);
@@ -75,36 +77,6 @@ class CostumerController {
         // console.log(deleteRes)
 
         return res.send({ deleted: Boolean(deleteRes.affected), id })
-    }
-
-    static verifyFields(user: any) {
-        let error = false;
-        const incorrectFields = Array();
-
-        try {
-            const requiredFields = [ 'name', 'phone', 'birth_date' ];
-
-            requiredFields.forEach((field, index) => {
-
-                if((user[field] === undefined) || (user[field] === '')) {
-
-                    if(!error)
-                        error = true;
-
-                    incorrectFields.push(field)
-                }
-            })
-
-        }catch {
-            error = true;
-        }
-
-        if(error) {
-            return { error, incorrectFields }
-
-        }else {
-            return { error }
-        }
     }
 }
 
