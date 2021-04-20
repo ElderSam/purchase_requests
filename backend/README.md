@@ -24,7 +24,9 @@ Open Insomnia, and import the file in `/api_documentation` folder
 Costumers;
 *``Create /costumers (POST)``*
 
-*``List: /costumers (GET)``*
+*``List All: /costumers (GET)``*
+
+*``List By Id: /costumers/:id (GET)``*
 
 *``Update: /costumers/:id (PUT)``*
 

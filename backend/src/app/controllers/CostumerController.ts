@@ -20,7 +20,7 @@ class CostumerController {
 
         const costumer = await Costumer.list(id);
 
-        return res.send({ costumer: costumer });
+        return res.send({ costumer });
     }
 
     async store(req: Request, res: Response) {
