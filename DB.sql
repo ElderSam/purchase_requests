@@ -9,7 +9,8 @@ CREATE TABLE public.costumers
     name character varying(50) NOT NULL,
     phone character varying(11) NOT NULL,
     birth_date date NOT NULL,
-    status smallint
+    status smallint DEFAULT 1,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE public.order_product
@@ -19,13 +20,14 @@ CREATE TABLE public.order_product
     id_product integer NOT NULL,
     unit_value numeric NOT NULL,
     amount smallint NOT NULL
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE public.orders
 (
     id SERIAL PRIMARY KEY,
     id_costumer integer NOT NULL,
-    date_hour timestamp without time zone
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE public.products
@@ -33,7 +35,8 @@ CREATE TABLE public.products
     id SERIAL PRIMARY KEY,
     name character varying(20) NOT NULL,
     value numeric NOT NULL,
-    status smallint
+    status smallint DEFAULT 1,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 ALTER TABLE public.order_product
