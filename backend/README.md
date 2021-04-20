@@ -63,6 +63,8 @@ To start the server manually when has Connection Error:
 **TypeORM**
 To manipulate database
 Documentation: https://typeorm.io/#/
+https://typeorm.io/#/select-query-builder/how-to-create-and-use-a-querybuilder
+Migrations: https://wanago.io/2019/01/28/typeorm-migrations-postgres/
 
     how to create migrations:
     $ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateCostumersTable
@@ -76,4 +78,7 @@ allow some annotations features used with TypeORM
 
 ---------------------
 ## Useful links:
+Configure to Typescript & TypeORM: https://dev.to/caiulucas/tests-with-jest-and-typeorm-4j1l
+OR Configure to Typescript: https://sharklabs.com.br/testes-unitarios-com-nodejs-jest-typescript/
+
 😉 Emojis: https://emojipedia.org/check-mark/

@@ -1,11 +1,7 @@
-import express from 'express';
-import './database/connect';
-import routes from './routes';
+import app from './server';
+import connection from './database/connect';
 
-const app = express();
+connection.create().then(() => console.log('✅  Successfully connected with database'));
 
-app.use(express.json());
-app.use(routes);
-
-const PORT = 3333;
+const PORT = 3333; // process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server started at http://localhost:${PORT}`));
