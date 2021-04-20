@@ -11,21 +11,17 @@ class CostumerController {
     }
 
     async store(req: Request, res: Response) {
-        const repository = getRepository(Costumer);
         const { name, phone, birth_date, status } = req.body;
 
-        const costumerExists = await repository.createQueryBuilder("costumers")
-            .where("LOWER(name) = LOWER(:name)", { name })
-            .getOne();
+        const costumerExists = await Costumer.findByName(name)
 
         if(costumerExists) { // implementation of the Singleton design pattern
             return res.status(409).send({ error: 'Já existe um usuário com este nome' }); // status 409: conflict
         }
 
-        const costumer = repository.create({ name, phone, birth_date, status });
-        await repository.save(costumer); // save on Database
+        const newCostumer = await Costumer.insert({ name, phone, birth_date, status });
 
-        return res.json(costumer);
+        return res.json(newCostumer);
     }
 
     async update(req: Request, res: Response) {
@@ -40,11 +36,7 @@ class CostumerController {
         // console.log(auxCostumer)
 
         try{
-            const updatedCostumer = await repository.createQueryBuilder("costumers")
-                .update(Costumer)
-                .set(auxCostumer)
-                .where("id = :id", { id })
-                .execute();
+            const updatedCostumer = await Costumer.update(id, auxCostumer);
 
             // console.log('UPDATE: ', updatedCostumer);
 
@@ -61,8 +53,7 @@ class CostumerController {
     async delete(req: Request, res: Response) { // delete Costumer
         const { id } = req.params;
 
-        const repositoty = getRepository(Costumer);
-        const deleteRes = await repositoty.delete(id)
+        const deleteRes = await Costumer.delete(id)
         // console.log(deleteRes)
 
         return res.send({ deleted: Boolean(deleteRes.affected), id })

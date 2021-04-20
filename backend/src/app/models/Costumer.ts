@@ -1,8 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column, getRepository, Repository } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, getRepository, Repository, DeepPartial } from 'typeorm';
 import { StatusType } from './../types';
 
 let repository: Repository<Costumer>;
 
+interface CostumerInterface {
+    name: string,
+    phone: string,
+    birth_date: string,
+    status: StatusType
+}
 @Entity('costumers')
 class Costumer {
 
@@ -41,6 +47,39 @@ class Costumer {
                 "created_at"
             ])
             .getRawMany();
+    }
+
+    static async findByName(name: string) {
+        const repository = getRepository(Costumer);
+
+        return await repository.createQueryBuilder("costumers")
+            .where("LOWER(name) = LOWER(:name)", { name })
+            .getOne();
+    }
+
+    static async insert(costumer: CostumerInterface) {
+        repository = getRepository(Costumer);
+
+        await repository.save(costumer); // save on Database
+
+        const auxCostumer = repository.create(costumer); // save on Database
+        return await repository.save(auxCostumer);
+    }
+
+    static async update(id: string, costumer: object) {
+        repository = getRepository(Costumer);
+
+        repository.createQueryBuilder("costumers")
+            .update(Costumer)
+            .set(costumer)
+            .where("id = :id", { id })
+            .execute();
+    }
+
+    static async delete(id: string) {
+        repository = getRepository(Costumer);
+
+        return await repository.delete(id)
     }
 }
 
