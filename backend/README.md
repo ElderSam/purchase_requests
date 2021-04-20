@@ -8,3 +8,7 @@
 ------------------
 ## Download PostgreSQL
 https://www.postgresql.org/download/
+
+
+como criar migrations:
+$ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateCostumersTable
