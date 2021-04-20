@@ -6,10 +6,10 @@
     "password": "admin",
     "database": "purchase_requests",
     "entities": [
-       "src/app/models/*.js"
+       "src/app/models/*.ts"
     ],
     "migrations": [
-       "src/database/migrations/*.js"
+       "src/database/migrations/*.ts"
     ],
     "cli": {
         "migrationsDir": "src/database/migrations"
