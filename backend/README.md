@@ -1,5 +1,8 @@
 # Backend
 
+Como criei a migration de Produtos:
+``$ yarn typeorm migration:create -n CreateProductsTable``
+---------
 ## Initialization 🚀
 
 ## 1️⃣ Install dependencies
