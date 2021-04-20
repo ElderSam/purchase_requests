@@ -61,7 +61,7 @@ To manipulate database
 Documentation: https://typeorm.io/#/
 
     how to create migrations:
-    $ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateUsersTable
+    $ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateCostumersTable
 
     Run Migrations:
     $ yarn typeorm migration:run

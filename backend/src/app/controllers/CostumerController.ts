@@ -27,6 +27,36 @@ class CostumerController {
 
         return res.json(costumer);
     }
+
+    async update(req: Request, res: Response) {
+
+        if(JSON.stringify(req.query) === "{}") // if the Params object is empty
+            return res.status(400).send({ error: 'No params received' })
+
+        const repository = getRepository(Costumer);
+
+        const { id } = req.params;
+        const auxCostumer = req.query;
+        // console.log(auxCostumer)
+
+        try{
+            const updatedCostumer = await repository.createQueryBuilder("costumers")
+                .update(Costumer)
+                .set(auxCostumer)
+                .where("id = :id", { id })
+                .execute();
+
+            // console.log('UPDATE: ', updatedCostumer);
+
+            return res.json({ message: 'Cliente Atualizado!' });
+
+        }catch(err) {
+            /*const { name, message } = err;
+            console.log({ name, message })*/
+
+            return res.status(400).send({ error: err.message });
+        }
+    }
 }
 
 export default new CostumerController();

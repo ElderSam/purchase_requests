@@ -9,3 +9,6 @@ router.post('/costumers', CostumerController.store);
 // List
 router.get('/costumers', CostumerController.listAll)
 export default router;
+
+// Update
+router.put('/costumers/:id', CostumerController.update);
