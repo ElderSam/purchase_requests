@@ -16,18 +16,22 @@ $ yarn dev
 ----------------
 
 ## API Rotes
-host: http://localhost
+host: http://localhost:3333
 
 You can use the Insomnia or Postman to see the routes
 
 Costumers;
     Create /costumers (POST)
 
+    List: /costumers (GET)
+
 ------------------
 ## Download PostgreSQL
 https://www.postgresql.org/download/
 
 ## TypeORM
+Documentation: https://typeorm.io/#/
+
 como criar migrations:
 $ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateCostumersTable
 
@@ -35,3 +39,28 @@ Executar Migrations:
 $ yarn typeorm migration:run
 
 Veja Mais: https://typeorm.io/#/migrations/creating-a-new-migration
+
+------------------
+## Tools and Libraries used:
+**body-parser**
+Parses the client's request from JSON into Javascript objects
+
+**ts-node**
+Automatically restarts the server when we change any file
+
+**PostgreSQL**
+Relational Database Manager
+Download PostgreSQL: https://www.postgresql.org/download/
+
+**TypeORM**
+To manipulate database
+Documentation: https://typeorm.io/#/
+
+    how to create migrations:
+    $ yarn typeorm migration:create -n <MIGRATION_NAME> //example of migration name: CreateUsersTable
+
+    Run Migrations:
+    $ yarn typeorm migration:run
+
+**reflect-metadata**
+allow some annotations features used with TypeORM
