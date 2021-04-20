@@ -7,7 +7,7 @@ export class CreateProductsTable1618941848510 implements MigrationInterface {
             CREATE TABLE products
             (
                 id SERIAL PRIMARY KEY,
-                name character varying(20) NOT NULL,
+                name character varying(20) UNIQUE NOT NULL,
                 value numeric NOT NULL,
                 status smallint DEFAULT 1,
                 created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
