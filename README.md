@@ -1,5 +1,5 @@
 # Aplicação de Pedido de Compras desenvolvida em ReactJS, Node.js e PostgreSQL
-
+OBS: Por enquanto só desenvolvi parte do backend (node.js)
 
 ## DER (Diagrama Entidade Relacionamento):
 ![alt text](/DER.png "ER (view of the relationship entity)")
